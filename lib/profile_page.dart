@@ -12,8 +12,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  String name = 'Ichiro';
-  String username = 'Kite'; // Default username
+  String name = 'Dizon';
+  String username = 'Dizon'; // Default username
   String description = 'Student'; // Default description
   String imagePath = ''; // Initialize as empty to use the default image
 

@@ -9,9 +9,8 @@ class CategoryBooksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Filter books based on the selected category
-    final List<Map<String, String>> filteredBooks = books
-        .where((book) => book['categories'] == category)
-        .toList();
+    final List<Map<String, String>> filteredBooks =
+        books.where((book) => book['categories'] == category).toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -33,7 +32,8 @@ class CategoryBooksPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: ListView.builder(
-          itemCount: filteredBooks.length, // Use the length of the filtered books list
+          itemCount:
+              filteredBooks.length, // Use the length of the filtered books list
           itemBuilder: (context, index) {
             final book = filteredBooks[index];
             return _buildBookItem(
@@ -44,6 +44,9 @@ class CategoryBooksPage extends StatelessWidget {
               book['categories']!,
               book['publishDate']!,
               book['description']!,
+              book['schoolId']!,
+              book['id']!,
+              book['availablecopy']!
             );
           },
         ),
@@ -59,6 +62,9 @@ class CategoryBooksPage extends StatelessWidget {
     String categories,
     String publishDate,
     String description,
+    String schoolId,
+    String bookId,
+    String availablecopy,
   ) {
     return Card(
       shape: RoundedRectangleBorder(
@@ -85,6 +91,9 @@ class CategoryBooksPage extends StatelessWidget {
                 categories: categories,
                 publishDate: publishDate,
                 description: description,
+                schoolId: schoolId, // Pass schoolId here
+                bookId: bookId,
+                availablecopy: availablecopy, // Pass bookId
               ),
             ),
           );
@@ -140,7 +149,7 @@ final List<Map<String, String>> books = [
       'description': 'A detailed description of Accounting Book ${i + 1}.',
     };
   }),
-   ...List.generate(20, (i) {
+  ...List.generate(20, (i) {
     return {
       'title': 'Business Book ${i + 1}',
       'author': 'Author Name ${i + 1}',
@@ -150,7 +159,7 @@ final List<Map<String, String>> books = [
       'description': 'A detailed description of Accounting Book ${i + 1}.',
     };
   }),
-   ...List.generate(15, (i) {
+  ...List.generate(15, (i) {
     return {
       'title': 'Caregiving Book ${i + 1}',
       'author': 'Author Name ${i + 1}',
@@ -160,7 +169,7 @@ final List<Map<String, String>> books = [
       'description': 'A detailed description of Accounting Book ${i + 1}.',
     };
   }),
-   ...List.generate(10, (i) {
+  ...List.generate(10, (i) {
     return {
       'title': 'Computer Book ${i + 1}',
       'author': 'Author Name ${i + 1}',
@@ -170,7 +179,7 @@ final List<Map<String, String>> books = [
       'description': 'A detailed description of Accounting Book ${i + 1}.',
     };
   }),
-   ...List.generate(40, (i) {
+  ...List.generate(40, (i) {
     return {
       'title': 'Accounting Book ${i + 1}',
       'author': 'Author Name ${i + 1}',
@@ -180,7 +189,7 @@ final List<Map<String, String>> books = [
       'description': 'A detailed description of Accounting Book ${i + 1}.',
     };
   }),
-   ...List.generate(12, (i) {
+  ...List.generate(12, (i) {
     return {
       'title': 'Criminology Book ${i + 1}',
       'author': 'Author Name ${i + 1}',
@@ -190,7 +199,7 @@ final List<Map<String, String>> books = [
       'description': 'A detailed description of Accounting Book ${i + 1}.',
     };
   }),
-   ...List.generate(18, (i) {
+  ...List.generate(18, (i) {
     return {
       'title': 'Dictionary Book ${i + 1}',
       'author': 'Author Name ${i + 1}',
@@ -200,7 +209,7 @@ final List<Map<String, String>> books = [
       'description': 'A detailed description of Accounting Book ${i + 1}.',
     };
   }),
-   ...List.generate(34, (i) {
+  ...List.generate(34, (i) {
     return {
       'title': 'Economics Book ${i + 1}',
       'author': 'Author Name ${i + 1}',
@@ -210,7 +219,7 @@ final List<Map<String, String>> books = [
       'description': 'A detailed description of Accounting Book ${i + 1}.',
     };
   }),
-...List.generate(45, (i) {
+  ...List.generate(45, (i) {
     return {
       'title': 'Education Book ${i + 1}',
       'author': 'Author Name ${i + 1}',
@@ -622,4 +631,3 @@ final List<Map<String, String>> books = [
   }),
   // You can continue adding more categories and books here
 ];
-
